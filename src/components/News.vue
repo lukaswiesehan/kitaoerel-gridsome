@@ -75,7 +75,6 @@
 </static-query>
 
 <script>
-  import axios from 'axios'
   export default {
     name: 'News',
     data() {
