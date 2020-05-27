@@ -1,14 +1,7 @@
-# Default starter for Gridsome
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e97bbe76-9cda-4e86-a7ae-2e1ba9c431d1/deploy-status)](https://app.netlify.com/sites/kita-oerel/deploys)
 
-This is the project you get when you run `gridsome create new-project`.
+# Kindertagesstätte Oerel
 
-### 1. Install Gridsome CLI tool if you don't have
+Die Seite basiert auf Vue.js und Gridsome, ist mit bulma.io gestyled und wird auf dem Netlify CDN gehosted.
 
-`npm install --global @gridsome/cli`
-
-### 2. Create a Gridsome project
-
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+Die Website genügt damit den JAM Stack Gepflogenheiten.
