@@ -25,7 +25,7 @@
               Über Uns
             </g-link>
             <div id="ueberuns-submenu" class="navbar-dropdown is-boxed">
-              <g-link class="navbar-item" to="/unserhaus/">
+              <g-link class="navbar-item" to="/unser-haus/">
                 <span class="icon has-text-info">
                   <i class="fas fa-school"></i>
                 </span>
