@@ -42,7 +42,7 @@
 
 <page-query>
   query {
-    allConceptChapters {
+    allConceptChapters(filter: {online: {eq: true}}, order: ASC) {
       edges {
         node {
           id

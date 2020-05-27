@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ${htmlAttrs}>
+  <head>
+    ${head}
+  </head>
+  <body ${bodyAttrs}>
+    ${app}
+    ${scripts}
+    <!-- JSON-LD -->
+    <script type='application/ld+json'> 
+      {
+        "@context": "http://www.schema.org",
+        "@type": "ChildCare",
+        "name": "Kindertagesstätte Oerel",
+        "url": "https://kita-oerel.de",
+        "description": "Die integrative Kindertagesstätte der Gemeinde Oerel",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Logedamm 3",
+          "addressLocality": "Oerel",
+          "addressRegion": "Niedersachsen",
+          "postalCode": "27432",
+          "addressCountry": "Oerel"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "04765 1505"
+        }
+      }
+       </script>
+    <!-- End JSON-LD Code -->
+  </body>
+</html>

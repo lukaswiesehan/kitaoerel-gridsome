@@ -21,7 +21,7 @@
             <span>Startseite</span>
           </g-link>
           <div class="navbar-item has-dropdown is-hoverable">
-            <g-link class="navbar-link" to="/unserhaus/">
+            <g-link class="navbar-link" to="/unser-haus/">
               Über Uns
             </g-link>
             <div id="ueberuns-submenu" class="navbar-dropdown is-boxed">

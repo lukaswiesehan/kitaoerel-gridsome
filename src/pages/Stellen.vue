@@ -15,7 +15,7 @@
     <section class="section">
       <div class="tabs is-centered is-boxed">
         <ul>
-          <li class="item is-active">
+          <li class="item">
             <g-link to="/unser-haus/">
               <span class="icon is-small has-text-info"><i class="fas fa-school"></i></span>
               <span>Unser Haus</span>
@@ -27,7 +27,7 @@
               <span>Unser Team</span>
             </g-link>
           </li>
-          <li class="item">
+          <li class="item is-active">
             <g-link to="/stellen/">
               <span class="icon is-small has-text-danger"><i class="fas fa-briefcase"></i></span>
               <span>Stellen</span>
@@ -49,16 +49,19 @@
       </div>
       <section class="section">
         <div class="container">
-          <h3 class="title is-size-4">Unser Haus</h3>
-          <p class="content">Die Kindertagesstätte soll ein Ort sein für Kinder und Mitarbeiter, auch für Kinder der Mitarbeiter, für Eltern und alle Gemeindemitglieder. Jeder wird als eigenständiger Mensch wahrgenommen und angenommen. Für die Kindertagesstätte zeigt sich Qualität vor allem im positiven Umgang miteinander. Zum Wohle der Kinder soll die Bereitschaft aller zum verantwortlichen Miteinander vorhanden sein. Die Mitarbeiter/innen sind für den Umgang mit den Kindern besonders ausgebildet. Wir werden Ihrem Kind immer freundlich, liebevoll, verständnisvoll und mit Achtsamkeit begegnen.</p>
+          <h3 class="title is-size-4">Stellen</h3>
+          <p class="content">Hier finden Sie alle momentan ausgeschriebenen Stellen. Für das freiwillige soziale Jahr stehen jedes Jahr drei Stellen zur Verfügung.</p>
+          <p class="content">Sie haben Fragen oder möchten Sich bewerben? <g-link to="/kontakt/">Hier entlang.</g-link></p>
           <hr class="is-large">
-          <div class="columns is-multiline">
-            <div class="column is-full is-one-quarter-desktop">
-              <p class="title is-size-5">Machen Sie sich ein Bild</p>
-              <p class="content">In Haus 1 befindet sich die Krippe für Kinder ab der 9. Lebenswoche bis 3 Jahren. In den Häusern 2 und 3 werden Kinder bis zum Schulbeginn betreut. Unsere Räume sollen Geborgenheit und angenehme Atmosphäre ausstrahlen. Sie bieten Bewegungsfreiheit, Nischen und unterschiedliche Spielbereiche. Viel Platz zum Strampeln, Rollen, Schieben, Krabbeln, Laufen, Erkunden und Experimentieren. Sandkiste, Rutsche, Nestschaukel, Kletternetz, Wasserpumpe, Spielhügel, Spielpferde und Fahrzeuge bieten viele Möglichkeiten zum geschützten Spiel im Freien.</p>
-            </div>
-            <div class="column is-full is-three-quarters-desktop">
-              <Gallery :photos="photos"></Gallery>
+          <p v-if="$page.allJobs.totalCount == 0" class="has-text-danger">Aktuell sind keine Stellen ausgeschrieben.</p>
+          <div v-for="(job, index) in $page.allJobs.edges" :key="index" class="box">
+            <div class="columns is-vcentered">
+              <div class="column has-text-centered"><span class='icon is-large has-text-danger'><i class="fas fa-3x fa-briefcase"></i></span></div>
+              <div class="column is-four-fifths">
+                <h4 class="title is-5">{{job.node.title}}</h4>
+                <p class="content">{{job.node.description}}</p>
+                <a v-bind:href="job.node.ad" class="button is-info">Stellenanzeige</a>
+              </div>
             </div>
           </div>
         </div>
@@ -69,10 +72,14 @@
 
 <page-query>
   query {
-    allAboutPhotos(order: ASC) {
+    allJobs(filter: {online: {eq: true}}, order: ASC) {
+      totalCount
       edges {
         node {
-          path
+          title
+          description
+          ad
+          online
         }
       }
     }
@@ -80,23 +87,9 @@
 </page-query>
 
 <script>
-import Gallery from '../components/Gallery.vue'
 export default {
-  components: {
-    Gallery
-  },
   metaInfo: {
-    title: 'Unser Haus'
-  },
-  data() {
-    return {
-      photos: []
-    }
-  },
-  mounted() {
-    this.$page.allAboutPhotos.edges.forEach(edge => {
-      this.photos.push(edge.node.path)
-    })
+    title: 'Stellen'
   }
 }
 </script>

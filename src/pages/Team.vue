@@ -40,7 +40,7 @@
             </g-link>
           </li>
           <li class="item">
-            <g-link href="/galerie/">
+            <g-link to="/galerie/">
               <span class="icon is-small has-text-success"><i class="fas fa-images"></i></span>
               <span>Fotogalerie</span>
             </g-link>
