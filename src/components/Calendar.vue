@@ -42,6 +42,21 @@
   </div>
 </template>
 
+<static-query>
+  query {
+    allEvents {
+      edges {
+        node {
+          id
+          title
+          start
+          end 
+        }
+      }
+    }
+  }
+</static-query>
+
 <script>
   export default {
     name: 'Calendar',
@@ -83,7 +98,31 @@
           })
         })
       },
-      getSortedMonths: function() {
+      queryData() {
+        var entries = []
+        this.$static.allEvents.edges.forEach(edge => {
+          var start = new Date(edge.node.start)
+          if(edge.node.end !='') {
+            var end = new Date(edge.node.end)
+            entries.push({'title': '(Start) ' + edge.node.title, 'date': start})
+            entries.push({'title': '(Ende) ' + edge.node.title, 'date': end})
+          } else {
+            entries.push({'title': edge.node.title, 'date': start})
+          }
+        })
+        entries.sort(function(a, b) {return a.date - b.date})
+        entries.forEach(entry => {
+          var year = entry.date.getFullYear()
+          var month = entry.date.getMonth() + 1 
+          for(var i = 0; i < 12; i++) {
+            if(this.months[i].id == month && this.months[i].year == year) {
+              this.months[i].entries.push(entry)
+              break;
+            }
+          }
+        })
+      },
+      getSortedMonths() {
         var months = [
           {name: 'Januar', next: 'Februar', id: 1, nextID: 2, entries: [], year: null},
           {name: 'Februar', next: 'März', id: 2, nextID: 3, entries: [], year: null},
@@ -116,7 +155,7 @@
     },
     mounted() {
       this.getSortedMonths()
-      this.fetchData()
+      this.queryData()
     }
   }
 </script>

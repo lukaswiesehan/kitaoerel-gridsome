@@ -1,11 +1,11 @@
 <template>
   <nav class="navbar is-transparent is-fixed-top is-spaced" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">
+        <g-link class="navbar-item" to="/">
           <img id="logo-mobile" class="is-hidden-tablet" src="../assets/images/logo.png">
           <img id="logo-tablet" class="is-hidden-widescreen is-hidden-mobile" src="../assets/images/logo.png">
           <img id="logo-desktop" class="is-hidden-touch is-hidden-desktop-only" src="../assets/images/logo.png">
-        </a>
+        </g-link>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" v-on:click="showMenu = !showMenu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
@@ -14,67 +14,67 @@
       </div>
       <div class="navbar-menu" v-bind:class="{'is-active': showMenu}">
         <div class="navbar-end">
-          <a class="navbar-item" href="/">
+          <g-link class="navbar-item" to="/">
             <span class="icon has-text-success">
               <i class="fas fa-home"></i>
             </span>
             <span>Startseite</span>
-          </a>
+          </g-link>
           <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link" href="/unserhaus">
+            <g-link class="navbar-link" to="/unserhaus/">
               Über Uns
-            </a>
+            </g-link>
             <div id="ueberuns-submenu" class="navbar-dropdown is-boxed">
-              <a class="navbar-item" href="/unserhaus">
+              <g-link class="navbar-item" to="/unserhaus/">
                 <span class="icon has-text-info">
                   <i class="fas fa-school"></i>
                 </span>
                 <span>Unser Haus</span>
-              </a>
-              <a class="navbar-item" href="/team">
+              </g-link>
+              <g-link class="navbar-item" to="/team/">
                 <span class="icon has-text-success">
                   <i class="fas fa-users"></i>
                 </span>
                 <span>Unser Team</span>
-              </a>
-              <a class="navbar-item" href="/stellen">
+              </g-link>
+              <g-link class="navbar-item" to="/stellen/">
                 <span class="icon has-text-danger">
                   <i class="fas fa-briefcase"></i>
                 </span>
                 <span>Stellen</span>
-              </a>
-              <a class="navbar-item" href="/eltern">
+              </g-link>
+              <g-link class="navbar-item" to="/eltern/">
                 <span class="icon has-text-warning">
                   <i class="fas fa-user-friends"></i>
                 </span>
                 <span>Eltern</span>
-              </a>
-              <a class="navbar-item" href="/gallerie">
+              </g-link>
+              <g-link class="navbar-item" to="/galerie/">
                 <span class="icon has-text-success">
                   <i class="fas fa-images"></i>
                 </span>
                 <span>Fotogalerie</span>
-              </a>
+              </g-link>
             </div>
           </div>
-          <a class="navbar-item" href="/konzeption">
+          <g-link class="navbar-item" to="/konzeption/">
             <span class="icon has-text-warning">
               <i class="fas fa-file-alt"></i>
             </span>
             <span>Konzeption</span>
-          </a>
-          <a class="navbar-item" href="/kontakt">
+          </g-link>
+          <g-link class="navbar-item" to="/kontakt/">
             <span class="icon has-text-danger">
               <i class="fas fa-envelope"></i>
             </span>
             <span>Kontakt</span>
-          </a>
-          <a class="navbar-item" href="/downloads">
+          </g-link>
+          <g-link class="navbar-item" to="/downloads/">
             <span class="icon has-text-info">
               <i class="fas fa-file-download"></i>
             </span>
             <span>Download</span>
-          </a>
+          </g-link>
         </div>
       </div>
     </nav>

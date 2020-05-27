@@ -57,7 +57,25 @@
   </div>
 </template>
 
+<static-query>
+  query {
+    allNews {
+      edges {
+        node {
+          id
+          modified
+          critical
+          headline
+          description
+          online
+        }
+      }
+    }
+  }
+</static-query>
+
 <script>
+  import axios from 'axios'
   export default {
     name: 'News',
     data() {
@@ -66,41 +84,20 @@
         newsIndex: null
       }
     },
-    methods: {
-      fetchData: function() {
-        const cockpitToken = 'da498ad0f30723572c3c0f3a422fcd'
-        const cockpitPath = 'https://cockpit.kita-oerel.de'
-        fetch(cockpitPath + '/api/collections/get/news?token=' + cockpitToken, {
-          method: 'post',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            filter: {online: true},
-            sort: {_modified:-1},
-          })
-        })
-        .then(data => data.json())
-        .then(data => {
-          console.log(data)
-          data.entries.forEach(entry => {
-            var mod = new Date(entry._modified * 1000)
-            this.news.push({
-              critical: entry.critical,
-              timestamp: mod.toLocaleDateString('de-DE') + ', ' + mod.getHours() + ':' + (mod.getMinutes() > 9 ? mod.getMinutes() : '0' + mod.getMinutes()) + ' Uhr',
-              shortDescription: entry.description.substr(0, 90) + '... ',
-              fullDescription: entry.description,
-              headline: entry.headline,
-              modal: false
-            })
-          })
-        })
-      }
-    },
     mounted() {
-      this.fetchData();
+      this.$static.allNews.edges.forEach(edge => {
+        if(edge.node.online) {
+          const mod = new Date(edge.node.modified * 1000)
+          this.news.push({
+            critical: edge.node.critical,
+            timestamp: mod.toLocaleDateString('de-DE') + ', ' + mod.getHours() + ':' + (mod.getMinutes() > 9 ? mod.getMinutes() : '0' + mod.getMinutes()) + ' Uhr',
+            shortDescription: edge.node.description.substr(0, 90) + '... ',
+            fullDescription: edge.node.description,
+            headline: edge.node.headline,
+            modal: false
+          })
+        }
+      })
     }
   }
 </script>
-
-<style scoped>
-
-</style>
