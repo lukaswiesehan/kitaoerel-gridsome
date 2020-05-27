@@ -176,7 +176,6 @@ export default {
         axios({
           method: 'post',
           url: process.env.GRIDSOME_COCKPIT_URL + '/api/forms/submit/contactform?token=' + process.env.GRIDSOME_COCKPIT_FORM_TOKEN,
-          //url: 'https://cockpit.kita-oerel.de/api/forms/submit/contactform?token=57f138d8700adc53f2d667e37d4c80',
           data: {
             form: {
               Name: this.contactForm.name,

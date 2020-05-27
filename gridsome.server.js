@@ -3,10 +3,11 @@ const axios = require('axios')
 module.exports = function (api) {
   api.loadSource(async actions => {
     // Fetch all data from Cockpit CMS:
-    const [newsResponse, eventsResponse, conceptResponse] = await Promise.all([
+    const [newsResponse, eventsResponse, conceptResponse, downloadsResponse] = await Promise.all([
       axios.get(process.env.GRIDSOME_COCKPIT_URL + '/api/collections/get/news?token=' + process.env.COCKPIT_CONTENT_TOKEN, {headers: {'Content-Type': 'application/json'}}),
       axios.get(process.env.GRIDSOME_COCKPIT_URL + '/api/collections/get/termine?token=' + process.env.COCKPIT_CONTENT_TOKEN, {headers: {'Content-Type': 'application/json'}}),
-      axios.get(process.env.GRIDSOME_COCKPIT_URL + '/api/collections/get/konzeption?token=' + process.env.COCKPIT_CONTENT_TOKEN, {headers: {'Content-Type': 'application/json'}})
+      axios.get(process.env.GRIDSOME_COCKPIT_URL + '/api/collections/get/konzeption?token=' + process.env.COCKPIT_CONTENT_TOKEN, {headers: {'Content-Type': 'application/json'}}),
+      axios.get(process.env.GRIDSOME_COCKPIT_URL + '/api/collections/get/downloads?token=' + process.env.COCKPIT_CONTENT_TOKEN, {headers: {'Content-Type': 'application/json'}})
     ])
     // Create Gridsome data collections:
     const news = actions.addCollection('News')
@@ -39,6 +40,16 @@ module.exports = function (api) {
           online: entry.online
         })
       }
+    }
+    const downloads = actions.addCollection('Downloads')
+    for(const entry of downloadsResponse.data.entries) {
+      downloads.addNode({
+        id: entry._id,
+        title: entry.title,
+        subtitle: entry.subtitle,
+        file: process.env.GRIDSOME_COCKPIT_URL + '/' + entry.file,
+        online: entry.online
+      })
     }
   })
 
