@@ -11,6 +11,16 @@
 <script>
   export default {
     name: 'Gallery',
+    components: {
+      Carousel: () =>
+        import ('vue-carousel/src/index')
+        .then(m => m.Carousel)
+        .catch(),
+      Slide: () =>
+        import ('vue-carousel/src/index')
+        .then(m => m.Slide)
+        .catch()
+    },
     props: {
       photos: Array
     },
