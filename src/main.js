@@ -12,5 +12,6 @@ export default function (Vue, { router, head, isClient }) {
     offset: -150
   })
   head.meta.push({key: 'description', name: 'description', content: 'Die integrative Kindertagesstätte der Gemeinde Oerel. Ein Einblick in unsere Einrichtung + aktuelle Informationen, Termine und Formulare zum Download.'})
-  head.meta.push({name: 'keywords', content: 'Kinder,Kita,Kindergarten,Kindertagesstätte,Oerel,Geestequelle'})
+  head.meta.push({name: 'keywords', content: 'Kinder,Kita,Kindergarten,Kindertagesstätte,Oerel,Geestequelle'}),
+  head.htmlAttrs = { lang: 'de' }
 }
