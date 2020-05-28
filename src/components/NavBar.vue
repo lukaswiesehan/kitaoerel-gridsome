@@ -2,9 +2,9 @@
   <nav class="navbar is-transparent is-fixed-top is-spaced" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <g-link class="navbar-item" to="/">
-          <img id="logo-mobile" class="is-hidden-tablet" src="../assets/images/logo.png">
-          <img id="logo-tablet" class="is-hidden-widescreen is-hidden-mobile" src="../assets/images/logo.png">
-          <img id="logo-desktop" class="is-hidden-touch is-hidden-desktop-only" src="../assets/images/logo.png">
+          <img id="logo-mobile" class="is-hidden-tablet" src="../assets/images/logo.png" alt="Kindertagesstätte Oerel">
+          <img id="logo-tablet" class="is-hidden-widescreen is-hidden-mobile" src="../assets/images/logo.png" alt="Kindertagesstätte Oerel">
+          <img id="logo-desktop" class="is-hidden-touch is-hidden-desktop-only" src="../assets/images/logo.png" alt="Kindertagesstätte Oerel">
         </g-link>
         <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" v-on:click="showMenu = !showMenu">
           <span aria-hidden="true"></span>
