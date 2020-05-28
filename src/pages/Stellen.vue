@@ -60,7 +60,7 @@
               <div class="column is-four-fifths">
                 <h4 class="title is-5">{{job.node.title}}</h4>
                 <p class="content">{{job.node.description}}</p>
-                <a v-bind:href="job.node.ad" class="button is-info">Stellenanzeige</a>
+                <a v-bind:href="job.node.ad" target="_blank" class="button is-info">Stellenanzeige</a>
               </div>
             </div>
           </div>

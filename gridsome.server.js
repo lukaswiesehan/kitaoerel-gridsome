@@ -64,6 +64,7 @@ module.exports = function (api) {
     for(const entry of teamResponse.data.entries) {
       team.addNode({
         id: entry._id,
+        order: entry._o,
         name: entry.name,
         job: entry.job,
         description: entry.description,

@@ -73,7 +73,7 @@
 
 <page-query>
   query {
-    allTeam(order: ASC) {
+    allTeam(sortBy: "order", order: ASC) {
       edges {
         node {
           name
