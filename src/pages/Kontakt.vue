@@ -30,7 +30,7 @@
                     Logedamm 3 <br>
                     27432 Oerel
                   </p>
-                  <p class="has-text-weight-bold"><i class="fas fa-envelope has-text-danger"></i><Email class="mail" email="kindergarten.oerel@web.de"></Email></p>
+                  <p class="has-text-weight-bold"><i class="fas fa-envelope has-text-danger"></i><Email class="mail" email="info@kita-oerel.de"></Email></p>
                   <p class="has-text-weight-bold"><i class="fas fa-phone has-text-danger"></i> 04765 1505</p>
                   <p class="has-text-weight-bold"><i class="fas fa-fax has-text-danger"></i> 04765 830801</p>
                 </div>
