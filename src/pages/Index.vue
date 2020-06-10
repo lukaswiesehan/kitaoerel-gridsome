@@ -83,7 +83,8 @@
   import Calendar from '../components/Calendar.vue'
   export default {
     metaInfo: {
-      title: 'Die integrative Kindertagesstätte der Gemeinde Oerel'
+      title: 'Die integrative Kindertagesstätte der Gemeinde Oerel',
+      meta: [{name: 'google-site-verification', content: 'wqRXAKxbgy72lLU8_62bsI4tNKqrn-UftToYPIM3P_o'}]
     },
     components: {
       News,
