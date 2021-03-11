@@ -39,6 +39,7 @@ module.exports = function (api) {
     for(const entry of conceptResponse.data.entries) {
       conceptChapters.addNode({
         id: entry._id,
+        position: entry._o,
         title: entry.title,
         content: entry.content,
         online: entry.online
