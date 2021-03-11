@@ -41,7 +41,7 @@ module.exports = function (api) {
         id: entry._id,
         position: entry._o,
         title: entry.title,
-        content: entry.content,
+        content: entry.content.replace(/src="\/storage/g, 'src="https://cockpit.kita-oerel.de/storage'),
         online: entry.online
       })
     }
