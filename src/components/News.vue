@@ -20,10 +20,8 @@
                 </div>
               </div>
             </div>
-            <p>
-              {{entry.shortDescription}}
-              <a v-on:click="entry.modal = true">mehr</a>
-            </p>
+            <p style="height: 45px; overflow: hidden;" v-html="entry.fullDescription"></p>
+            <p><a v-on:click="entry.modal = true">Weiterlesen</a></p>
           </div>
         </div>
         <div v-bind:class="{'is-active': entry.modal}" class="modal">
@@ -45,7 +43,12 @@
                     </div>
                   </div>
                 </div>
-                <p>{{entry.fullDescription}}</p>
+                <p v-html="entry.fullDescription"></p>
+                <div class="columns">
+                  <div v-for="(image, index) in entry.images" :key="index" class="column">
+                    <g-image v-bind:src="image"/>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -67,6 +70,9 @@
           critical
           headline
           description
+          images {
+            path
+          }
           online
         }
       }
@@ -87,11 +93,16 @@
       this.$static.allNews.edges.forEach(edge => {
         if(edge.node.online) {
           const mod = new Date(edge.node.modified * 1000)
+          var images = []
+          edge.node.images.forEach(image => {
+            images.push(process.env.GRIDSOME_COCKPIT_URL + image.path)
+          })
           this.news.push({
             critical: edge.node.critical,
             timestamp: mod.toLocaleDateString('de-DE') + ', ' + mod.getHours() + ':' + (mod.getMinutes() > 9 ? mod.getMinutes() : '0' + mod.getMinutes()) + ' Uhr',
             shortDescription: edge.node.description.substr(0, 90) + '... ',
             fullDescription: edge.node.description,
+            images: images,
             headline: edge.node.headline,
             modal: false
           })

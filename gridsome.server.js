@@ -23,6 +23,7 @@ module.exports = function (api) {
         critical: entry.critical,
         headline: entry.headline,
         description: entry.description,
+        images: entry.images,
         online: entry.online
       })
     }
