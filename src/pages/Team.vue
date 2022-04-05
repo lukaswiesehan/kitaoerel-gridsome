@@ -56,7 +56,7 @@
             <div v-for="(member, index) in $page.allTeam.edges" :key="index" class="column is-one-third">
               <div class="box">
                 <div class="figure avatar">
-                  <img v-bind:src="member.node.picture" v-bind:alt="member.node.name">
+                  <img v-bind:src="member.node.picture" v-bind:alt="member.node.name" style="width: 100%">
                 </div>
                 <hr>
                 <p class="heading">{{member.node.job}}</p>
