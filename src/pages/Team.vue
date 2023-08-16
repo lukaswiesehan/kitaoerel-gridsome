@@ -55,8 +55,8 @@
           <div class="columns is-multiline">
             <div v-for="(member, index) in $page.allTeam.edges" :key="index" class="column is-one-third">
               <div class="box">
-                <div class="figure avatar">
-                  <img v-bind:src="member.node.picture" v-bind:alt="member.node.name" style="width: 100%">
+                <div class="figure avatar" style="position: relative; width: 100%; aspect-ratio: 1/1;">
+                  <img v-bind:src="member.node.picture" v-bind:alt="member.node.name" style="object-fit: cover; object-position: top;">
                 </div>
                 <hr>
                 <p class="heading">{{member.node.job}}</p>
